@@ -78,22 +78,22 @@ end
  
  
 local dispel_spell = {
-    [4987] = { "Poison", "Disease", "Magic" },
+    [4987] = {"Magic" }, --  "Poison", "Disease", 
     [213644] = { "Poison", "Disease" },
     [19801] = { "Magic" },
     [31224] = { "Poison", "Curse", "Disease", "Magic" },
-    [527] = { "Disease", "Magic" },
+    [527] = { "Magic" }, --  "Disease", 
     [32375] = { "Magic" },
     [528] = { "Magic" },
     [51886] = { "Curse" },
-    [77130] = { "Curse", "Magic" },
+    [77130] = {"Magic" },-- "Curse", 
     [370] = { "Magic" },
     [475] = { "Curse" },
     [19505] = { "Magic" },
-    [115450] = { "Poison", "Disease", "Magic" },
+    [115450] = { "Magic" }, -- "Poison", "Disease", 
     [218164] = { "Poison", "Disease" },
     [2782] = { "Poison", "Curse" },
-    [88423] = { "Poison", "Curse", "Magic" },
+    [88423] = { "Magic" }, -- "Poison", "Curse", 
     [122288] = { "Poison", "Disease" },
     [365585] = { "Poison" },
     [374251] = { "Bleed", "Poison", "Curse", "Disease" },
@@ -131,7 +131,7 @@ local function canDispel(Unit, spellID)
 			local dispelName = debuffType.dispelName
 			local sid = debuffType.spellId
             if forbiddenDebuffs[sid] then break end
-            if ValidType(dispelName, spellID) then
+            if ValidType(dispelName, spellID) or tonumber(sid) == 440313 then
                 return true
             end
         end
